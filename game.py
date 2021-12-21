@@ -75,4 +75,4 @@ class Game:
         return self._turn % 2 == 1
 
     def _get_ai_move(self):
-        return self._ai.get_column(self._board.get_board())
+        return self._ai.get_column(self._board.get_board(), self._players[0])
