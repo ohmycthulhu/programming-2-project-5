@@ -42,6 +42,18 @@ class Connect4:
         return [i for i in range(board_bool.shape[1]) if board_bool[0, i]]
 
     @staticmethod
+    def add_to_column(board, column, empty, obj):
+        col = board[:, column]
+
+        for i in range(len(col) - 1, -1, -1):
+            if col[i] == empty:
+                res = board.copy()
+                res[i, column] = obj
+                return res
+
+        return None
+
+    @staticmethod
     def get_available_combinations(board_bool):
         return Connect4._get_available_vertical(board_bool) + \
             Connect4._get_available_horizontal(board_bool) + \
