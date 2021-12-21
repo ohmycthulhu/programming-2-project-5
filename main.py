@@ -3,7 +3,7 @@ from game import Game
 
 def main():
     # Initialize the game
-    game = Game()
+    game = Game(width=7, height=7)
 
     # Run iterations of game until the game ends
     while game.can_continue():
@@ -12,7 +12,7 @@ def main():
     # Display winner name or message about draw
     if game.has_winner():
         game.print()
-        print(f"{game.get_winner_name()} won!")
+        print(f"{game.winner_name} won!")
     else:
         print("Game is draw!")
 
