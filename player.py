@@ -2,21 +2,28 @@ import numpy as np
 
 
 class Player:
-    def __init__(self, name, character, is_playable=True):
-        self.name = name
-        self.char = character
+    """
+        Class for representing the player. It provides methods for accessing char, name and highlighting the board.
+        Highlighting is a map: [[any]] => [[boolean]]
+    """
+    def __init__(self, name, character):
+        self._name = name
+        self._char = character
 
     def highlight_board(self, board):
-        return board == self.char
+        return board == self._char
 
     def highlight_possible(self, board):
-        return np.logical_or(board == self.char, board == EmptyPlayer.char)
+        return np.logical_or(board == self._char, board == EmptyPlayer.char)
 
-    def get_char(self):
-        return self.char
+    @property
+    def char(self):
+        return self._char
 
-    def get_name(self):
-        return self.name
+    @property
+    def name(self):
+        return self._name
 
 
-EmptyPlayer = Player('Empty cell', ' ', is_playable=False)
+# Default player for representing empty cell
+EmptyPlayer = Player('Empty cell', ' ')

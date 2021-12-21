@@ -10,7 +10,7 @@ def main():
         game.iterate()
 
     # Display winner name or message about draw
-    if game.has_winner():
+    if game.has_winner:
         game.print()
         print(f"{game.winner_name} won!")
     else:

@@ -2,6 +2,11 @@ import numpy as np
 
 
 class Connect4:
+    """
+        Static class for common operations over the board in Connect4.
+        Most of the methods work with boolean 2D arrays
+    """
+
     # All winning combinations
     # Matrices are applied the way that all cells are checked at least one
     VERTICAL_WIN = np.array([[1], [1], [1], [1]])
@@ -43,6 +48,10 @@ class Connect4:
 
     @staticmethod
     def add_to_column(board, column, empty, obj):
+        """
+            Adds new item to the column to the copy of `board`, and returns it.
+            Returns false if the column is unavailable
+        """
         col = board[:, column]
 
         for i in range(len(col) - 1, -1, -1):
@@ -53,6 +62,7 @@ class Connect4:
 
         return None
 
+    """Methods below are for counting the number of available winning combinations in boolean board"""
     @staticmethod
     def get_available_combinations(board_bool):
         return Connect4._get_available_vertical(board_bool) + \
